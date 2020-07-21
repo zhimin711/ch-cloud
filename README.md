@@ -4,6 +4,8 @@
 基于Spring Boot、Spring Cloud & Alibaba、spring sercurity & JWT的分布式微服务架构管理系统
 
 #### 软件架构
+<img src="./images/ch-cloud.jpg" alt="软件架构"/>
+
 软件架构说明
 
 
