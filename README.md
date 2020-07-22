@@ -48,73 +48,99 @@
 说明：网关服务  
 提供Token鉴权、请求拦截与分发、日志记录
 
+**由于资源不足，未能提供演示环境，请参考以下安装教程**
 
 #### 安装教程
-基于Docker安装开发环境
+准备一台4核8G服务器  
+基于Docker安装开发环境  
+
+>基础服务
 1.  安装数据库Mysql
 2.  安装缓存Redis
 3.  安装Nacos
-4.  安装prometheus(监控中间件，非必要的)
-5.  安装grafana(监控面板，非必要的)  
-基于docker-compose.yaml一键部署
-```yaml
-version: "3.5"
-services:
-  nacos:
-    image: nacos/nacos-server:latest
-    container_name: ch-nacos-2
-    env_file:
-      - ./env/nacos-standlone-mysql.env
-    volumes:
-      - ./nacos/logs/:/home/nacos/logs
-      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
-    ports:
-      - "8848:8848"
-      - "9555:9555"
-    depends_on:
-      - mysql
-    restart: on-failure
-  mysql:
-    container_name: ch-mysql-2
-    image: nacos/nacos-mysql:5.7
-    env_file:
-      - ./env/mysql.env
-    volumes:
-      - ./mysql/data:/var/lib/mysql
-      - ./mysql/conf:/etc/mysql/conf.d
-    ports:
-      - "3306:3306"
-  prometheus:
-    container_name: ch-prometheus-2
-    image: prom/prometheus:latest
-    volumes:
-      - ./prometheus/prometheus-standalone.yaml:/etc/prometheus/prometheus.yml
-    ports:
-      - "9090:9090"
-    depends_on:
-      - nacos
-    restart: on-failure
-  grafana:
-    container_name: ch-grafana-2
-    image: grafana/grafana:latest
-    ports:
-      - 3000:3000
-    restart: on-failure
-  redis:
-    container_name: ch-redis-2
-    image: docker.io/redis:latest
-    volumes:
-      - ./redis/data:/data
-    ports:
-      - 6379:6379
-    restart: on-failure
+4.  安装prometheus(监控中间件，非必要安装)
+5.  安装grafana(监控面板，非必要安装)  
+
+复制docker/base目录到服务器
+使用docker/base/docker-compose.yaml一键部署
+```shell script
+docker-compose -f docker-compose.yml up -d
 ```
-6.  安装RocketMQ
+>中间服务
+1.  安装RocketMQ
+```shell script
 
-由于资源不足，不能提供演示环境
+```
+>应用服务
+1.  静态页面服务（请点击[ch-admin3](https://gitee.com/ch-cloud/ch-admin3)）
+2.  用户权限服务（请点击[ch-upms](https://gitee.com/ch-cloud/ch-upms)）
+3.  用户登录认证服务（请点击[ch-sso](https://gitee.com/ch-cloud/ch-sso)）
+4.  网关鉴权请求服务（请点击[ch-gateway](https://gitee.com/ch-cloud/ch-gateway)）
+>扩展服务(非必要安装)
+1.  Canal管理服务（请点击[canal-admin]()）
+2.  Kafka管理服务（请点击[ch-kafka]()）
+
 #### 使用说明
+<table>
+    <tr>
+        <td>登录</td>
+        <td>首页</td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/cd1f90be5f2684f4560c9519c0f2a232ee8.jpg"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/1cbcf0e6f257c7d3a063c0e3f2ff989e4b3.jpg"/></td>
+    </tr>
+    <tr>
+        <td>用户管理</td>
+        <td>角色管理</td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/707825ad3f29de74a8d6d02fbd73ad631ea.jpg"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/46be40cc6f01aa300eed53a19b5012bf484.jpg"/></td>
+    </tr>
+    <tr>
+        <td>权限管理</td>
+        <td>组织管理</td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/4284796d4cea240d181b8f2201813dda710.jpg"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/3ecfac87a049f7fe36abbcaafb2c40d36cf.jpg"/></td>
+    </tr>
+    <tr>
+        <td>职位管理</td>
+        <td>数据字典</td>
+    </tr>
+	<tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/71c2d48905221a09a728df4aff4160b8607.jpg"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/c14c1ee9a64a6a9c2c22f67d43198767dbe.jpg"/></td>
+    </tr>	
+    <tr>
+        <td>登录日志</td>
+        <td>操作日志</td>
+    </tr> 
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/5e8c387724954459291aafd5eb52b456f53.jpg"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/644e78da53c2e92a95dfda4f76e6d117c4b.jpg"/></td>
+    </tr>
+    <tr>
+        <td>集群管理</td>
+        <td>服务管理</td>
+    </tr>
+	<tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/fdea1d8bb8625c27bf964176a2c8ebc6945.jpg"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/509d2708cfd762b6e6339364cac1cc1970c.jpg"/></td>
+    </tr>
+    <tr>
+        <td>实例管理</td>
+        <td>告警管理</td>
+    </tr>
+	<tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-f1fd681cc9d295db74e85ad6d2fe4389454.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-c195234bbcd30be6927f037a6755e6ab69c.png"/></td>
+    </tr>
+</table>
+1.  登录
 
-1.  xxxx
 2.  xxxx
 3.  xxxx
 
