@@ -1,13 +1,20 @@
 # wiki
 
 #### 介绍
-基于Spring Boot、Spring Cloud & Alibaba、spring sercurity & JWT的分布式微服务架构管理系统
-
+* 采用前后端分离的模式，微服务版本前端(基于 [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin));
+* 后端采用Spring Boot、Spring Cloud & Alibaba;
+* 注册中心、配置中心选型Nacos;
+* 权限认证使用spring security + Jwt token;
 #### 软件架构
 <img src="./images/ch-cloud.jpg" alt="软件架构"/>
 
-软件架构说明
-
+####功能模块说明
+~~~
+ch-admin3
+ch-upms
+ch-sso
+ch-gateway
+~~~
 
 #### 安装教程
 
