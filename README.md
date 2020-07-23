@@ -68,7 +68,7 @@
 docker-compose -f docker-compose.yml up -d
 ```
 启动完成拓扑图如下：
-<img src="./images/tp1.jpg" alt="基础服务拓扑"/>
+<img src="./images/tp1.png" alt="基础服务拓扑"/>
 >中间服务
 1.  安装RocketMQ  
     - 复制docker/RocketMQ到服务器  
@@ -78,7 +78,7 @@ docker-compose -f docker-compose.yml up -d
 docker-compose -f docker-compose.yml up -d
 ```
 启动完成拓扑图如下：
-<img src="./images/tp2.jpg" alt="中间服务拓扑"/>
+<img src="./images/tp2.png" alt="中间服务拓扑"/>
 >应用服务
 1.  静态页面服务（[请点击打开ch-admin3](https://gitee.com/ch-cloud/ch-admin3)）
 2.  用户权限服务（[请点击打开ch-upms](https://gitee.com/ch-cloud/ch-upms)）
