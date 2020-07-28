@@ -8,6 +8,19 @@
 ### 软件架构
 <img src="./images/ch-cloud.jpg" alt="软件架构"/>
 
+>服务注册与调用
+基于Nacos来实现的服务注册与调用，在Spring Cloud中使用Feign, 我们可以做到使用HTTP请求远程服务时能与调用本地方法一样的编码体验，开发者完全感知不到这是远程方法，更感知不到这是个HTTP请求。
+
+>服务鉴权  
+通过JWT的方式来加强服务之间调度的权限验证，保证内部服务的安全性。
+
+>负载均衡  
+将服务保留的rest进行代理和网关控制，除了平常经常使用的node.js、nginx外，Spring Cloud系列的gateway和ribbon，可以帮我们进行正常的网关管控和负载均衡。  
+其中扩展和借鉴国内Alibaba Sentinel组件，方面进行限流。
+
+>熔断机制  
+因为采取了服务的分布，为了避免服务之间的调用“雪崩”，采用了Hystrix的作为熔断器，避免了服务之间的“雪崩”。
+
 ### 微服务说明
 
 [ch-admin3](https://gitee.com/ch-cloud/ch-admin3)  
@@ -46,7 +59,7 @@
 
 [ch-gateway](https://gitee.com/ch-cloud/ch-gateway)  
 说明：网关服务  
-提供Token鉴权、请求拦截与分发、日志记录
+提供Token鉴权、路由、请求日志记录
 
 **由于资源不足，未能提供演示环境，请参考以下安装教程**
 
@@ -80,10 +93,10 @@ docker-compose -f docker-compose.yml up -d
 启动完成拓扑图如下：
 <img src="./images/tp2.png" alt="中间服务拓扑"/>
 >应用服务
-1.  静态页面服务（[请点击打开ch-admin3](https://gitee.com/ch-cloud/ch-admin3)）
-2.  用户权限服务（[请点击打开ch-upms](https://gitee.com/ch-cloud/ch-upms)）
-3.  用户登录认证服务（[请点击打开ch-sso](https://gitee.com/ch-cloud/ch-sso)）
-4.  网关鉴权请求服务（[请点击打开ch-gateway](https://gitee.com/ch-cloud/ch-gateway)）
+1.  安装静态页面服务（[请点击打开ch-admin3](https://gitee.com/ch-cloud/ch-admin3)）
+2.  安装用户权限服务（[请点击打开ch-upms](https://gitee.com/ch-cloud/ch-upms)）
+3.  安装用户登录认证服务（[请点击打开ch-sso](https://gitee.com/ch-cloud/ch-sso)）
+4.  安装网关(鉴权、路由)服务（[请点击打开ch-gateway](https://gitee.com/ch-cloud/ch-gateway)）
 >扩展服务(非必要安装)
 1.  Canal管理服务（[请点击打开canal-admin](https://gitee.com/ch-cloud/canal-admin)）
 2.  Kafka管理服务（[请点击打开ch-kafka](https://gitee.com/ch-cloud/ch-kafka)）
@@ -132,10 +145,4 @@ docker-compose -f docker-compose.yml up -d
     </tr>
 </table>
 
-### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
 
