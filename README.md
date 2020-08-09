@@ -1,10 +1,13 @@
 # wiki
-
+企业级微服务架构，服务灵活扩展。
 ### 介绍
 * 采用前后端分离的模式，微服务版本前端(基于 [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin));
 * 后端采用Spring Boot、Spring Cloud & Alibaba;
 * 注册中心+配置中心选型Nacos;
 * 权限认证使用spring security + Jwt token;
+* 使用RocketMQ做消息总线
+* 使用Redis缓存权证码、Token与权限
+* 使用Alibaba sentinel做流量哨兵,提供服务限流与熔断
 ### 软件架构
 <img src="./images/ch-cloud.jpg" alt="软件架构"/>
 
@@ -64,8 +67,6 @@
 **由于资源不足，未能提供演示环境，请参考以下安装教程**
 
 ### 安装教程
-准备一台4核8G服务器  
-基于Docker安装开发环境  
 
 >基础服务
 1.  安装数据库Mysql
@@ -73,10 +74,12 @@
 3.  安装Nacos
 4.  安装prometheus(监控中间件，非必要安装)
 5.  安装grafana(监控面板，非必要安装)  
-
+>>开发一键部署  
+准备一台4核8G服务器  
+基于Docker安装开发环境  
     - 复制docker/base目录到服务器
     - 切换到该目录  
-    - 使用docker/base/docker-compose.yaml一键部署
+    - 使用docker/base/docker-compose.yaml
 ```shell script
 docker-compose -f docker-compose.yml up -d
 ```
@@ -84,9 +87,10 @@ docker-compose -f docker-compose.yml up -d
 <img src="./images/tp1.png" alt="基础服务拓扑"/>
 >中间服务
 1.  安装RocketMQ  
+>>一键部署  
     - 复制docker/RocketMQ到服务器  
     - 切换到该目录  
-    - 使用docker/RocketMQ /docker-compose.yaml一键部署
+    - 使用docker/RocketMQ /docker-compose.yaml
 ```shell script
 docker-compose -f docker-compose.yml up -d
 ```
@@ -97,7 +101,7 @@ docker-compose -f docker-compose.yml up -d
 2.  安装用户权限服务（[请点击打开ch-upms](https://gitee.com/ch-cloud/ch-upms)）
 3.  安装用户登录认证服务（[请点击打开ch-sso](https://gitee.com/ch-cloud/ch-sso)）
 4.  安装网关(鉴权、路由)服务（[请点击打开ch-gateway](https://gitee.com/ch-cloud/ch-gateway)）
->扩展服务(非必要安装)
+>扩展服务(非必要安装，代码不开放)
 1.  Canal管理服务（[请点击打开canal-admin](https://gitee.com/ch-cloud/canal-admin)）
 2.  Kafka管理服务（[请点击打开ch-kafka](https://gitee.com/ch-cloud/ch-kafka)）
 
