@@ -9,7 +9,7 @@
 * 使用Redis缓存权证码、Token与权限
 * 使用Alibaba sentinel做流量哨兵,提供服务限流与熔断
 ### 软件架构
-<img src="./images/ch-cloud.jpg" alt="软件架构"/>
+<img src="https://gitee.com/ch-cloud/wiki/raw/master/images/ch-cloud.jpg" alt="软件架构"/>
 
 >服务注册与调用
 基于Nacos来实现的服务注册与调用，在Spring Cloud中使用Feign, 我们可以做到使用HTTP请求远程服务时能与调用本地方法一样的编码体验，开发者完全感知不到这是远程方法，更感知不到这是个HTTP请求。
@@ -84,7 +84,7 @@
 docker-compose -f docker-compose.yml up -d
 ```
 启动完成拓扑图如下：
-<img src="./images/tp1.png" alt="基础服务拓扑"/>
+<img src="https://gitee.com/ch-cloud/wiki/raw/master/images/tp1.png" alt="基础服务拓扑"/>
 >中间服务
 1.  安装RocketMQ  
 >>一键部署  
@@ -95,7 +95,7 @@ docker-compose -f docker-compose.yml up -d
 docker-compose -f docker-compose.yml up -d
 ```
 启动完成拓扑图如下：
-<img src="./images/tp2.png" alt="中间服务拓扑"/>
+<img src="https://gitee.com/ch-cloud/wiki/raw/master/images/tp2.png" alt="中间服务拓扑"/>
 >应用服务
 1.  安装静态页面服务（[请点击打开ch-admin3](https://gitee.com/ch-cloud/ch-admin3)）
 2.  安装用户权限服务（[请点击打开ch-upms](https://gitee.com/ch-cloud/ch-upms)）
@@ -112,40 +112,40 @@ docker-compose -f docker-compose.yml up -d
         <td>首页</td>
     </tr>
     <tr>
-        <td><img src="./images/login.png"/></td>
-        <td><img src="./images/home.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/login.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/home.png"/></td>
     </tr>
     <tr>
         <td>用户管理</td>
         <td>角色管理</td>
     </tr>
     <tr>
-        <td><img src="./images/user.png"/></td>
-        <td><img src="./images/role.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/user.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/role.png"/></td>
     </tr>
     <tr>
         <td>权限管理</td>
         <td>组织管理</td>
     </tr>
     <tr>
-        <td><img src="./images/permission.png"/></td>
-        <td><img src="./images/dept.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/permission.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/dept.png"/></td>
     </tr>
     <tr>
         <td>职位管理</td>
         <td>数据字典</td>
     </tr>
 	<tr>
-        <td><img src="./images/post.png"/></td>
-        <td><img src="./images/dict.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/post.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/dict.png"/></td>
     </tr>	
     <tr>
         <td>登录日志</td>
         <td>操作日志</td>
     </tr> 
     <tr>
-        <td><img src="./images/login_logs.png"/></td>
-        <td><img src="./images/operate_logs.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/login_logs.png"/></td>
+        <td><img src="https://gitee.com/ch-cloud/wiki/raw/master/images/operate_logs.png"/></td>
     </tr>
 </table>
 
